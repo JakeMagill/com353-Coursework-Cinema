@@ -1,0 +1,38 @@
+body{
+    overflow-x: hidden;
+}
+
+nav{
+    -webkit-box-shadow: 4px 10px 11px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 10px 11px -5px rgba(0,0,0,0.75);
+    box-shadow: 4px 10px 11px -5px rgba(0,0,0,0.75);
+}
+
+
+.card-img-top{
+    transition:0.3s;
+}
+
+.card-img-top:hover{
+    filter: opacity(50%)
+}
+
+.carousel{
+    height: 350px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.footer{
+    width: 100%;
+}
+
+.info-area{
+    background-color: #f5f7fa;
+}
+
+.navbar{
+    border-radius: 0%;
+    margin-bottom: 0px;
+    
+}
