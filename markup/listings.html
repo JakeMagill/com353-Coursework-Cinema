@@ -15,10 +15,10 @@
 </head>
 <body>
 
-    <!--Navigation-->
+    <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
+            <a class="navbar-brand" href="../index.html">Cinema</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,10 +34,10 @@
                         <a class="nav-link" href="../markup/listings.html">Listings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Locations</a>
+                        <a class="nav-link" href="./locations.html">Locations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
                     </li>
                 </ul>
             </div>
@@ -47,14 +47,7 @@
     <!--Page Content-->
     <section>
         <div class="container" id="movieContainer">
-            <!-- <div class="row border my-3">
-                <div class="col-md-4 col-sm-0">
-                    <img src="../media/posters/Endgame-movie-poster.jpg" alt="" height="200px" width="300px">
-                </div>
-                <div class="col-md-8 col-sm-12">
-                    <h3><u>Movie Title</u></h3>
-                </div>
-            </div> -->
+           <!--Javascript will render a list of movies here when the page is loaded (see JS at page bottom)-->
         </div>
     </section>
 
@@ -68,7 +61,10 @@
         <!-- /.container -->
     </footer>
 
-    <script src="../js/custom.js"></script>
+    <!-- Custom JS scripts-->
+    <script src="../js/MovieListings.js"></script>
+
+    <!-- Bootstrap JS CDNs -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -77,33 +73,9 @@
         crossorigin="anonymous"></script>
     
         <script>
-            $(document).ready(function(){
-                var html = "";
-                var movieListDiv = document.getElementById("movieContainer");
-                var allMovies = returnMovies();
-
-                allMovies.forEach(element => {
-                    var movieSynopsis = checkSynopsis(element.synopsis);
-
-                    html += '<div class="row border my-3">' + 
-                                '<div class="col-md-4 col-sm-0">' + 
-                                    '<a href=' + movieSynopsis + '>' + 
-                                        '<img src="../media/posters/Endgame-movie-poster.jpg" alt="" height="200px" width="300px" class="py-3">' +
-                                    '</a>' + 
-                                '</div>' +
-                                '<div class="col-md-8 col-sm-12">' +
-                                    '<h3 class="py-3"><u>' + element.Title + '</u></h3>' +
-                                    '<p>' + checkSynopsis(element.synopsis) + '</p>' +
-                                    '<p>' + element.rating + '</p>' +
-                                '</div>' + 
-                            '</div>'
-                
-                movieListDiv.innerHTML = html;
-
-                });
+            $(document).ready(function(){ //Will run once the page has been loaded
+                renderMovieListings(); //call a method within custom.js which will render move list
             });
-
-            
         </script>
 </body>
 </html>
