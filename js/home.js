@@ -7,29 +7,56 @@ function renderMovieCards() {
     var allMovies = getMovieCardDetails(); //calls function from home.js (see below)
 
     if (allMovies.length > 0) {
-        allMovies.array.forEach(element => {
+        allMovies.forEach(element => {
             html += '<div class="col-lg-4 col-md-6 mb-4">' +
                         '<div class="card h-100">' +
-                            '<a href="#">' +
-                                '<img class="card-img-top" src="http://placehold.it/700x400" alt="">' +
+                            '<a href=' + checkPagePath(element.pagePath)+ '>' +
+                                '<img class="card-img-top" src="' + checkImagePath(element.imagePath) + '"alt="">' +
                             '</a>' +
                             '<div class="card-body">' +
                                 '<h4 class="card-title">' +
-                                    '<a href="#">Item Six</a>' +
+                                    '<a href=' + checkPagePath(element.pagePath) + '>' + element.name + '</a>' +
                                 '</h4>' +
-                                '<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>' +
+                                '<p class="card-text">' + checkSynopsis(element.briefSynopsis) + '</p>' +
                             '</div>' +
                         '</div>' +
                     '</div>'
         });
     }
 
+    movieCardsDiv.innerHTML = html;
 }
 
 function getMovieCardDetails() {
     var movieDetails = [
         {
-            
+            'name': 'Avnengers: Endgame', 
+            'briefSynopsis' : 'Blah blah blah', 
+            'imagePath': '../media/posters/Endgame-movie-poster.jpg',
+            'pagePath' : '"../markup/movie pages/endgame.html"',
         }
     ]
+
+    return movieDetails;
+}
+
+function checkSynopsis(synopsis){
+    if(synopsis === undefined){
+        return 'there is no synopsis available for this film at this time';
+    }
+    return synopsis;
+}
+
+function checkImagePath(path){
+    if(path === undefined){
+        return '#';
+    }
+    return path;
+}
+
+function checkPagePath(pagePath){
+    if(pagePath === undefined){
+        return '#';
+    }
+    return pagePath;
 }
