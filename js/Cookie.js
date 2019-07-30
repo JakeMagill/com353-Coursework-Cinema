@@ -1,3 +1,6 @@
+
+//This file holds all of the functions required for Cookies to function properly
+
 // creates cookie on home page
 function createCookie(cookieName, cookieValue, cookieExpiryDays) {
     var date = new Date(); // creates new date
@@ -22,7 +25,7 @@ function getCookie(cookieName) { //takes cookie name as parameter
         }
     }
     return null; // returned if no cookie exists
-}å
+}
 
 function cookiesPolicyBar() {
     // Check cookie
