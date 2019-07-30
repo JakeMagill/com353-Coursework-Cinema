@@ -39,9 +39,9 @@ function renderMovieListings(){
 function returnMoviesList(){ 
     var movies = [
         {
-            'Title': 'Avengers Endgame',
+            'Title': 'Avengers: Endgame',
             'Age Rating': '12A', 
-            'link': '"../markup/movie pages/endgame.html"',
+            'link': '../markup/movie pages/endgame.html',
             'synopsis': 'This is the synopsis of the movie', 
             'imagePath': '../media/posters/Endgame-movie-poster.jpg'
         }, 

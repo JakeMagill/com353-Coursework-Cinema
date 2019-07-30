@@ -18,35 +18,36 @@
 </head>
 
 <body>
-    <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="../index.html">Cinema</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../markup/index.html">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="../markup/listings.html">Listings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./locations.html">Locations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./PricingInfo.html">Pricing</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="container">
+            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../markup/index.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../markup/listings.html">Listings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./locations.html">Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contactForm.html">Contact</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-
+        </div>
+    </nav>
     <!--Carousel-->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
@@ -70,13 +71,20 @@
         </a>
     </div>
 
-    <!--Other Page Content -->
+    <!-- Main Page Content -->
     <div class="container">
+        <h3 class="pt-5"><u>Popular Releases</u></h3>
         <div class="row py-5" id="movieCards">
+            <!--Cards from the renderMovieCards() method will be rendered here, see home.js file-->
+        </div>
 
-            
+
+        <div class="row py-5" id="recentlyViewed">
+            <!--will render movies whos title is currently being stored in the sites cookie-->
         </div>
     </div>
+
+    
 
     <!-- Cookie policy bar (see JS logic at page bottom) -->
     <div id='cookieAcceptBar' class="cookieAcceptBar bg-dark mb-0 text-white">
@@ -123,11 +131,14 @@
         $(document).ready(function () {
             renderMovieCards();
             cookiesPolicyBar(); // checks for cookie on  page load
+            renderRecentlyViewed(getCookie('cinemaTicketCookie'));
         });
 
         //Assign cookie on click of the accept button on the cookie bar
         $('#cookieAcceptBarConfirm').on('click', function () {
-            createCookie("cinemaTicketCookie", 1, 1); // creates cookie
+            var recentMovies = [];
+            var recentMoviesArr = JSON.stringify(recentMovies);
+            createCookie("cinemaTicketCookie", recentMoviesArr, 1); // creates cookie
             $('#cookieAcceptBar').hide(); // fades out the cookie bar
         });
 

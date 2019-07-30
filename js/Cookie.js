@@ -27,6 +27,10 @@ function getCookie(cookieName) { //takes cookie name as parameter
     return null; // returned if no cookie exists
 }
 
+function deleteCookie(cookieName){
+    document.cookie = cookieName + '=' ; +  'expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // set the value of the cookie to nothing and the expiry dat in the past to delete the cookie
+}
+
 function cookiesPolicyBar() {
     // Check cookie
     var cookie = getCookie('cinemaTicketCookie');
@@ -36,4 +40,27 @@ function cookiesPolicyBar() {
     else {
         $('#cookieAcceptBar').hide(); // hides the cookie bar
     }
+}
+
+function addRecentlyViewed(movieName){
+
+    var cookieName = 'cinemaTicketCookie';
+    deleteCookie(cookieName);
+    if(getCookie(cookieName) === null || getCookie(cookieName === undefined)){ //creates a new cookie if none exists
+
+        var recentMovies = [];
+        var recentMoviesArr = JSON.stringify(recentMovies);
+        createCookie("cinemaTicketCookie", recentMoviesArr, 1); // creates cookie
+
+     } 
+    var storedRecentMoves = JSON.parse(getCookie(cookieName)); // deserialises JSON to retrive array within the cookie
+        
+    if(storedRecentMoves.length == 3){ // if the array has three values
+        storedRecentMoves.pop(); // remove the last value
+    }
+
+    storedRecentMoves.unshift(movieName); // add the current movie to the start of the array
+    storedRecentMoves = JSON.stringify(storedRecentMoves); // re-serialise the array into JSON
+    deleteCookie(cookieName, storedRecentMoves); // remove the current cookie as they cannot be amended
+    createCookie(cookieName, storedRecentMoves, 1); // create a new cookie with the new array values
 }

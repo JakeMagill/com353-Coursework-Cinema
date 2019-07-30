@@ -45,8 +45,9 @@ nav{
 }
 
 .footer{
-
-    bottom:0;
+    position: relative;
+    left: 0;
+    bottom: 0;
     width: 100%;
 }
 
@@ -64,6 +65,11 @@ nav{
     border-radius: 0%;
     margin-bottom: 0px;
     
+}
+
+.pricingBox{
+    padding-right: 60px;
+    font-size: 21px;
 }
 
 .screening-time-div{

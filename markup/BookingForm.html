@@ -1,38 +1,270 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Booking</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../css/site.css" rel="stylesheet">
 </head>
+
 <body>
+    <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">Cinema</a>
+            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                    <li class="nav-item">
+                        <a class="nav-link" href="../markup/index.html">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="../markup/listings.html">Listings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="./locations.html">Locations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contactForm.html">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>ß
+    </nav>
+
+    <!--Beginning of the form-->
+    <div class="container">
+        <form class="py-5">
+
+            <!--Name input field-->
+            <div class="form-group row">
+                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                </div>
+            </div>
+
+            <!--Email input field-->
+            <div class="form-group row">
+                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+            </div>
+
+            <!--Title dropdown field-->
+            <div class="form-group">
+                <label for="movieDropDown">Movie Title</label>
+                <select class="form-control" id="movieDropDown">
+                    <option value="default">--Movie Title--</option> 
+                    <option value="Avengers:endgame">Avengers: Endgame</option>
+                    <option value="lionKing">The Lion King</option>
+                    <option value="us">Us</option>
+                    <option value="Yesterday">Yesterday</option>
+                    <option value="spiderman">Spiderman: Far From Home</option>
+                    <option value="goldfinch">The Goldfinch</option>
+                </select>
+            </div>
+
+            <!--Title dropdown field-->
+            <div class="form-group">
+                <label for="movieDropDown">Cinema</label>
+                <select class="form-control" id="cinemaDropDown">
+                    <option value="default">--Cinema--</option>
+                    <option value="Jordanstown">Jordanstown</option>
+                    <option value="Magee">Magee</option>
+                    <option value="Colraine">Colraine</option>
+                </select>
+            </div>
+
+            <!--Title dropdown field-->
+            <div class="form-group">
+                <label for="movieDropDown">Time</label>
+                <select class="form-control" id="timeDropdown">
+                    
+                </select>
+            </div>
+
+            <!--Title dropdown field-->
+            <div class="form-group">
+                <label for="movieDropDown">Ticket Type</label>
+                <select class="form-control" id="ticketTypeDropdown">
+                    <option value="default">--Ticket Type--</option>
+                    <option value=7.50>Adult</option>
+                    <option value=4.50>Kid</option>
+                    <option value=5.00>Senior</option>
+                    <option value=5.00>Teen</option>
+                    <option value=5.50>Student</option>
+                    <option value=19.50>Family</option>
+                </select>
+            </div>
+
+            <!--Title dropdown field-->
+            <div class="form-group">
+                <label for="movieDropDown">No. of Tickets</label>
+                <select class="form-control" id="ticketNoDropdown">
+                    <option value="default">--Ticket No.--</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                </select>
+            </div>
+            <div class=" py-4">
+                <span class="h5">Total: </span>
+                <span class="h5" id="totalAmount"></span>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <!--The following link will open a thank you modal (made with fancy box) and call a function to redirect the user after 10 seconds-->
+                    <a class="btn btn-info" data-fancybox data-src="#hidden-content" href="javascript:;" onclick="redirectHome()">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div style="display: none;" id="hidden-content"> <!--Model which will be shown when book now is clicked-->
+        <h2>Thank You!</h2>
+        <p>Thanks for booking, your order is being processed and you will be emailed your tickets soon</p>
+        <p>In the meantime you will be redirected back to the homepage in a few seconds</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark footer">
+        <div class="container">
+            <div class="col-md-4  col-sm-12">
+                <p class="m-0 text-white">Copyright &copy; Your Website 2019</p>
+            </div>
+            <!-- Footer Links -->
+            <div class="col-md-4 col-sm-12">
+                <p class="text-white">
+                    <ul class="div-list">
+                        <li>
+                            <a href="">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            var params = new URLSearchParams(window.location.search);
+            var timeParam = params.get("time");
+            var titleParam = params.get("title");
+            var cinemaParam = params.get("cinema");
+            
+            if (timeParam != null){
+                document.getElementById('timeDropdown').value = timeParam;
+            }
+
+            if (titleParam != null) {
+                document.getElementById('movieDropDown').value = titleParam
+            }
+
+            if (cinemaParam != null){
+                document.getElementById('cinemaDropDown').value = cinemaParam
+            }
+
+            setTimeDropdownOptions();
+        })
+
+        $('#cinemaDropDown').change(function(){
+            setTimeDropdownOptions();
+        });
+
+
+        function setTimeDropdownOptions(){
+            var cinemaNameAndTimes = {
+                'Jordanstown': ['10:30', '12:45', '14:30', '17:15', '19:00'], 
+                'Colraine': ['08:30', '11:45', '13:30', '16:15', '18:00'], 
+                'Magee': ['11:30', '13:45', '15:30', '17:30', '20:00']
+            };
+
+            var cinema = $('#cinemaDropDown').children("option:selected").val();
+            var times = cinemaNameAndTimes[cinema];
+
+            var html = $.map(times, function(time){
+                return '<option value="' + time + '">' + time + '</option>'
+            }).join('');
+
+            document.getElementById('timeDropdown').innerHTML=html;
+        }
+
+        $('#ticketTypeDropdown').change(function () { // if the type if ticket is changed
+            var ticketType = $('#ticketTypeDropdown').val(); // get the value of the ticket dropdown
+            var ticketNo = $('#ticketNoDropdown').val(); // get the value of the number of tickets dropdown
+            var totalText = document.getElementById('totalAmount'); // get the id of the element which will display the total amount
+            var total;
+
+            if (ticketNo != 'deault' && ticketType != 'default') { // check that neither value is default
+                if(ticketNo * ticketType === NaN){
+                    total = 0;
+                } // calculate total
+                else {
+                    total = ticketNo * ticketType;
+                }
+
+                totalText.innerText = '£' + (ticketNo * ticketType); // set the total element to display total price
+            }
+        });
+
+        $('#ticketNoDropdown').change(function () { // reparat of the above but triggers when number of tickets is changed
+            var ticketType = $('#ticketTypeDropdown').val();
+            var ticketNo = $('#ticketNoDropdown').val();
+            var totalText = document.getElementById('totalAmount');
+
+            if (ticketNo != 'deault' && ticketType != 'default') {
+                total = ticketNo * ticketType;
+
+                totalText.innerText = '£' + (ticketNo * ticketType);
+            }
+        });
+
+        $('#totalAmount').change(function(){
+            if(this.innerText == '£NaN'){
+                this.innerText = '£0'
+            }
+        })
+
+        function redirectHome(){
+            window.setTimeout(function () { //delayed function to redirect the user after 'submitting'
+                window.location.href = './index.html'; // move to the home page
+            }, 10000); // wait 10 seconds before firing
+        }
+
+    </script>
 </body>
 
 </html>

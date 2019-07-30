@@ -7,7 +7,8 @@
     <title>Contact</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 
 
@@ -20,7 +21,7 @@
     <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">Cinema</a>
+            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,7 +33,7 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="../markup/listings.html">Listings</a>
                     </li>
                     <li class="nav-item">
@@ -41,7 +42,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./PricingInfo.html">Pricing</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="./contactForm.html">Contact</a>
                     </li>
                 </ul>
@@ -57,7 +58,7 @@
             <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
             <!--Section description-->
             <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-                a matter of hours to help you.</p>
+                a few hours to help you.</p>
 
             <div class="row">
 
@@ -118,11 +119,22 @@
                     </form>
 
                     <div class="text-center text-md-left">
-                        <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                        <div class="col-sm-10">
+                            <!--The following link will open a thank you modal (made with fancy box) -->
+                            <a class="btn btn-info" data-fancybox data-src="#hidden-content" href="javascript:;" onclick="redirectHome()">
+                                Submit
+                            </a>
+                        </div>
                     </div>
                     <div class="status"></div>
                 </div>
                 <!--Grid column-->
+
+                <!--Fancy box hidden div, will appear when submit is clicked-->
+                <div style="display: none;" id="hidden-content"> <!--Model which will be shown when book now is clicked-->
+                    <h2>Thanks for getting in touch!</h2>
+                    <p>A member of your team will get back to you as soon as possible, in the meant time you will be redirected back to the home page</p>
+                </div>
 
                 <!--Grid column-->
                 <div class="col-md-3 text-center">
@@ -146,28 +158,6 @@
                 <!--Grid column-->
 
             </div>
-<<<<<<< HEAD
-=======
-            <div class="status"></div>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-3 text-center">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>Jordanstown, Ulster University</p>
-                </li>
-
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p>+ 01 234 567 89</p>
-                </li>
-
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>Simon@com353.com</p>
-                </li>
-            </ul>
->>>>>>> 1a65ab18bc1ca2ffe24053d4f99062e1892ffefa
         </div>
     </section>
 
@@ -191,5 +181,13 @@
         </footer>
 
 </body>
+
+<script>
+    function redirectHome(){
+            window.setTimeout(function () { //delayed function to redirect the user after 'submitting'
+                window.location.href = './index.html'; // move to the home page
+            }, 10000); // wait 10 seconds before firing
+        }
+</script>
 </html>
     <!--Section: Contact v.2-->

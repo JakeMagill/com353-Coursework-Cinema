@@ -27,13 +27,52 @@ function renderMovieCards() {
     movieCardsDiv.innerHTML = html;
 }
 
+function renderRecentlyViewed(cookieArray){
+
+    if (cookieArray != undefined){
+
+        var movies = getMovieCardDetails();
+        var cookieMovies = JSON.parse(cookieArray);
+        var html = '<h3 class="pt-5"><u>Recently Viewed</u></h3><br/>';
+        var recentlyViewedDiv = document.getElementById("recentlyViewed");
+    
+        cookieMovies.forEach(cookieMovie => {
+            movies.forEach(movie => {
+                if (movie.name = cookieMovie){
+                    html += '<div class="col-lg-4 col-md-6 mb-4">' +
+                    '<div class="card h-100">' +
+                    '<a href=' + checkPagePath(movie.pagePath)+ '>' +
+                        '<img class="card-img-top" src="' + checkImagePath(movie.imagePath) + '"alt="">' +
+                    '</a>' +
+                    '<div class="card-body">' +
+                        '<h4 class="card-title">' +
+                            '<a href=' + checkPagePath(movie.pagePath) + '>' + movie.name + '</a>' +
+                        '</h4>' +
+                        '<p class="card-text">' + checkSynopsis(movie.briefSynopsis) + '</p>' +
+                    '</div>' +
+                '</div>' +
+            '</div>'
+            }
+        });
+    });
+        
+    recentlyViewedDiv.innerHTML = html;
+    }
+}
+
 function getMovieCardDetails() {
     var movieDetails = [
         {
-            'name': 'Avnengers: Endgame', 
+            'name': 'Avengers: Endgame', 
             'briefSynopsis' : 'Blah blah blah', 
             'imagePath': '../media/posters/Endgame-movie-poster.jpg',
             'pagePath' : '"../markup/movie pages/endgame.html"',
+        }, 
+        {
+            'name': 'Spiderman: Far From Home', 
+            'briefSynopsis' : 'Blah blah blah', 
+            'imagePath': '../media/posters/Endgame-movie-poster.jpg',
+            'pagePath' : '"../markup/movie pages/spiderman.html"',
         }
     ]
 
