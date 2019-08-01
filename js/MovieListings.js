@@ -2,10 +2,10 @@
 //This file holds all of the functions used on the movie listing page
 
 //Renders a list of divs containing information about films and links to a specific movie page
-function renderMovieListings(){
+function renderMovieListings(movieList){
     var html = "";
     var movieListDiv = document.getElementById("movieContainer"); //gets the id of the div which will hold the content
-    var allMovies = returnMoviesList(); //calls function from custom.js
+    var allMovies = movieList; //calls function from custom.js
 
     if (allMovies.length > 0){
         allMovies.forEach(element => { // iterates through objects in allMovies variable
@@ -35,50 +35,6 @@ function renderMovieListings(){
     movieListDiv.innerHTML = html; 
 }   
 
-//creates list of movie objects which will then be returned
-function returnMoviesList(){ 
-    var movies = [
-        {
-            'Title': 'Avengers: Endgame',
-            'Age Rating': '12A', 
-            'link': '"../markup/endgame.html"',
-            'synopsis': 'This is the synopsis of the movie', 
-            'imagePath': '../media/posters/Endgame-movie-poster.jpg'
-        }, 
-        {
-            'Title': 'Spiderman: Far From Home', 
-            'Age Rating': '12A',
-            'synposis': '', 
-            'imagePath': '../media/posters/spiderman.jpeg'
-        },
-        {
-            'Title': 'The Lion King', 
-            'Age Rating': '12A',
-            'synposis': '', 
-            'imagePath': ''           
-        },
-        {
-            'Title': 'Alladin', 
-            'Age Rating': '12A',
-            'synposis': '', 
-            'imagePath': ''           
-        },
-        {
-            'Title': 'Us',
-            'Age Rating': '12A',
-            'synposis': '', 
-            'imagePath': '' 
-        },
-        {
-            'Title': 'Fast & Furious Presents: Hobbs & Shaw',
-            'Age Rating': '12A',
-            'synposis': '', 
-            'imagePath': '' 
-        }
-    ]
-
-    return movies;
-}
 
 // checks if there is a synopsis in the movie object, if not return message for the user
 function checkSynopsis(synopsis){

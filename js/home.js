@@ -64,7 +64,7 @@ function getMovieCardDetails() {
     var movieDetails = [
         {
             'name': 'Avengers: Endgame', 
-            'briefSynopsis' : 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality. The fate of the planet and existence itself has never been more uncertain as everything the Avengers have fought for has led up to this moment.', 
+            'briefSynopsis' : 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos.',
             'imagePath': '../media/posters/Endgame-movie-poster.jpg',
             'pagePath' : '"../markup/movie pages/endgame.html"',
         }, 
