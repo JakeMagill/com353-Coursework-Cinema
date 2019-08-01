@@ -50,6 +50,30 @@ function returnMoviesList(){
             'Age Rating': '12A',
             'synposis': '', 
             'imagePath': '../media/posters/spiderman.jpeg'
+        },
+        {
+            'Title': 'The Lion King', 
+            'Age Rating': '12A',
+            'synposis': '', 
+            'imagePath': ''           
+        },
+        {
+            'Title': 'Alladin', 
+            'Age Rating': '12A',
+            'synposis': '', 
+            'imagePath': ''           
+        },
+        {
+            'Title': 'Us',
+            'Age Rating': '12A',
+            'synposis': '', 
+            'imagePath': '' 
+        },
+        {
+            'Title': 'Fast & Furious Presents: Hobbs & Shaw',
+            'Age Rating': '12A',
+            'synposis': '', 
+            'imagePath': '' 
         }
     ]
 
