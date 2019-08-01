@@ -19,7 +19,7 @@ function renderMovieListings(){
                            '<h3 class="py-3"><u>' + element.Title + '</u></h3>' +
                            '<p>' + checkSynopsis(element.synopsis) + '</p>' + //calls custom.js to ensure value isn't undefinedso user doesn't see undefined
                            '<p>' + checkRating(element.ageRating) + '</p>' +
-                           '<a href="' + checkLink(element.link) + '">' +
+                           '<a href=' + checkLink(element.link) + '>' +
                                 '<button class="btn btn-primary">More Info</button>' +
                            '</a>' +
                        '</div>' + 
@@ -41,7 +41,7 @@ function returnMoviesList(){
         {
             'Title': 'Avengers: Endgame',
             'Age Rating': '12A', 
-            'link': '../markup/movie pages/endgame.html',
+            'link': '"../markup/endgame.html"',
             'synopsis': 'This is the synopsis of the movie', 
             'imagePath': '../media/posters/Endgame-movie-poster.jpg'
         }, 
