@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,51 +14,33 @@
     <!-- Custom styles for this template -->
     <link href="../css/site.css" rel="stylesheet">
 </head>
+
 <body>
 
-   <!--Navigation Bar-->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../markup/index.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../markup/listings.html">Listings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./locations.html">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contactForm.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!--Navigation Bar-->
+    <div id="navbarDiv">
+        <!--Will be populated by the navbar.js file called on page load-->
+    </div>ß
 
     <!--Page Content-->
     <section>
         <div class="container" id="movieContainer">
-           <!--Javascript will render a list of movies here when the page is loaded (see JS at page bottom)-->
+            <!--Javascript will render a list of movies here when the page is loaded (see JS at page bottom)-->
         </div>
     </section>
 
-    <div style="text-align:center;padding:1em 0;"> <h4><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/2655984"><span style="color:gray;">Current local time in</span><br />Belfast, United Kingdom</a></h4> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=small&timezone=Europe%2FLondon" width="100%" height="90" frameborder="0" seamless></iframe> </div>
+    <div style="text-align:center;padding:1em 0;">
+        <h4>
+            <a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/2655984">
+                <span style="color:gray;">Current local time in</span>
+                <br />Belfast, United Kingdom</a>
+        </h4>
+        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=small&timezone=Europe%2FLondon"
+            width="100%" height="90" frameborder="0" seamless></iframe>
+    </div>
 
-<!-- Footer -->
-<footer class="py-5 bg-dark footer">
+    <!-- Footer -->
+    <footer class="py-5 bg-dark footer">
         <div class="container">
             <div class="col-md-4  col-sm-12">
                 <p class="m-0 text-white">Copyright &copy; Your Website 2019</p>
@@ -78,6 +61,7 @@
     <!-- Custom JS scripts-->
     <script src="../js/MovieListings.js"></script>
     <script src="../js/Movies.js"></script>
+    <script src="../js/Navbar.js"></script>
 
     <!-- Bootstrap JS CDNs -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -86,11 +70,13 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    
-        <script>
-            $(document).ready(function(){ //Will run once the page has been loaded
-                renderMovieListings(returnMoviesList()); //call a method within custom.js which will render move list
-            });
-        </script>
+
+    <script>
+        $(document).ready(function () { //Will run once the page has been loaded
+            renderNavbar(returnMoviesList()); // renders the navbar at the top of the page
+            renderMovieListings(returnMoviesList()); //call a method within custom.js which will render move list
+        });
+    </script>
 </body>
+
 </html>

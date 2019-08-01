@@ -1,21 +1,20 @@
 
 //The purpose of this file is to hold all of the JS relating to the home page
 
-function renderMovieCards() {
+function renderMovieCards(movies) {
     var html = "";
     var movieCardsDiv = document.getElementById("movieCards"); //gets the id of the div which will hold the content
-    var allMovies = getMovieCardDetails(); //calls function from home.js (see below)
-
-    if (allMovies.length > 0) {
-        allMovies.forEach(element => {
+    
+    if (movies.length > 0) {
+        movies.forEach(element => {
             html += '<div class="col-lg-4 col-md-6 mb-4">' +
                         '<div class="card h-100">' +
-                            '<a href=' + checkPagePath(element.pagePath)+ '>' +
+                            '<a href=' + checkPagePath(element.link)+ '>' +
                                 '<img class="card-img-top" src="' + checkImagePath(element.imagePath) + '"alt="">' +
                             '</a>' +
                             '<div class="card-body">' +
                                 '<h4 class="card-title">' +
-                                    '<a href=' + checkPagePath(element.pagePath) + '>' + element.name + '</a>' +
+                                    '<a href=' + checkPagePath(element.link) + '>' + element.Title + '</a>' +
                                 '</h4>' +
                                 '<p class="card-text">' + checkSynopsis(element.briefSynopsis) + '</p>' +
                             '</div>' +
@@ -58,25 +57,6 @@ function renderRecentlyViewed(cookieArray){
         
     recentlyViewedDiv.innerHTML = html;
     }
-}
-
-function getMovieCardDetails() {
-    var movieDetails = [
-        {
-            'name': 'Avengers: Endgame', 
-            'briefSynopsis' : 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos.',
-            'imagePath': '../media/posters/Endgame-movie-poster.jpg',
-            'pagePath' : '"../markup/movie pages/endgame.html"',
-        }, 
-        {
-            'name': 'Spiderman: Far From Home', 
-            'briefSynopsis' : 'Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.', 
-            'imagePath': '../media/posters/spiderman.jpeg',
-            'pagePath' : '"../markup/movie pages/spiderman.html"',
-        }
-    ]
-
-    return movieDetails;
 }
 
 function checkSynopsis(synopsis){

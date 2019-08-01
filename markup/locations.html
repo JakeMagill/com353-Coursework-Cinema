@@ -17,36 +17,9 @@
 
 <body>
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../markup/index.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../markup/listings.html">Listings</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./locations.html">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contactForm.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="navbarDiv">
+        <!--Will be populated by the navbar.js file called on page load-->
+    </div>
 
     <div class="container">
         <h2 class="py-5">Locations</h2>
@@ -71,7 +44,8 @@
                 <p>Email:</p>
             </div>
             <div class="col-md-5 col-sm-12">
-                    <iframe width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcfQ3YCriX0gRR4boQDHFCFM&key=AIzaSyDOc3-8uEtSXybLV9xWR44iwBYhg8BuzyA" allowfullscreen></iframe> 
+                <iframe width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcfQ3YCriX0gRR4boQDHFCFM&key=AIzaSyDOc3-8uEtSXybLV9xWR44iwBYhg8BuzyA"
+                    allowfullscreen></iframe>
             </div>
         </div>
         <hr>
@@ -83,7 +57,8 @@
                 <p>Email:</p>
             </div>
             <div class="col-md-5 col-sm-12">
-                    <iframe width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ49Tzr5QkYEgRLXPDcIxpHS0&key=AIzaSyDOc3-8uEtSXybLV9xWR44iwBYhg8BuzyA" allowfullscreen></iframe> 
+                <iframe width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ49Tzr5QkYEgRLXPDcIxpHS0&key=AIzaSyDOc3-8uEtSXybLV9xWR44iwBYhg8BuzyA"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -107,6 +82,9 @@
         </div>
     </footer>
 
+    <script src="../js/Movies.js"></script>
+    <script src="../js/Navbar.js"></script>
+
     <!-- JS CDNs required for bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -114,6 +92,12 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () { //Will run once the page has been loaded
+            renderNavbar(returnMoviesList()); // renders the navbar at the top of the page
+        });
+    </script>
 
 </body>
 

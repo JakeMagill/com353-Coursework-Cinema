@@ -1,9 +1,12 @@
+
+//returns the an arrat
+
 function returnMoviesList(){ 
     var movies = [
         {
             'Title': 'Avengers: Endgame',
             'Age Rating': '12A', 
-            'link': '"../markup/endgame.html"',
+            'link': '"./endgame.html"',
             'synopsis': 'This is the synopsis of the movie', 
             'briefSynopsis' : 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos.', //used on home page
             'imagePath': '../media/posters/Endgame-movie-poster.jpg'

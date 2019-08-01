@@ -6,7 +6,7 @@ function renderMovieListings(movieList){
     var html = "";
     var movieListDiv = document.getElementById("movieContainer"); //gets the id of the div which will hold the content
     var allMovies = movieList; //calls function from custom.js
-
+  
     if (allMovies.length > 0){
         allMovies.forEach(element => { // iterates through objects in allMovies variable
             html += '<div class="row border my-3 border-0">' + // each iteration will built the following html and add it to the html variable,

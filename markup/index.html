@@ -18,36 +18,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../markup/index.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../markup/listings.html">Listings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./locations.html">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contactForm.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="navbarDiv">
+       <!--Will be populated by the navbar.js file-->
+    </div>
+
     <!--Carousel-->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
@@ -84,18 +58,6 @@
         </div>
     </div>
 
-    
-
-    <!-- Cookie policy bar (see JS logic at page bottom) -->
-    <div id='cookieAcceptBar' class="cookieAcceptBar bg-dark mb-0 text-white">
-        <p>This website uses cookies, please click 'Accept and Close' to accept the use of cookies on our website. By continuing
-            to browse you accept the use of cookies on the website.</p>
-        <p>For more information on how we use cookies please visit our Cookie & Privacy Policy page notice page.</p>
-        <button id="cookieAcceptBarConfirm" class="btn btn-success">
-            <span>Accept and Close</span>
-        </button>
-    </div>
-
     <!-- Footer -->
     <footer class="py-5 bg-dark footer">
         <div class="container">
@@ -115,9 +77,21 @@
         </div>
     </footer>
 
+      <!-- Cookie policy bar (see JS logic at page bottom) -->
+      <div id='cookieAcceptBar' class="cookieAcceptBar bg-dark mb-0 text-white">
+            <p>This website uses cookies, please click 'Accept and Close' to accept the use of cookies on our website. By continuing
+                to browse you accept the use of cookies on the website.</p>
+            <p>For more information on how we use cookies please visit our Cookie & Privacy Policy page notice page.</p>
+            <button id="cookieAcceptBarConfirm" class="btn btn-success">
+                <span>Accept and Close</span>
+            </button>
+        </div>
+
     <!-- Custom JS -->
     <script src="../js/Cookie.js"></script>
     <script src="../js/home.js"></script>
+    <script src="../js/Movies.js"></script>
+    <script src="../js/Navbar.js"></script>
 
     <!-- JS CDNs required for bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -129,9 +103,10 @@
 
     <script>
         $(document).ready(function () {
-            renderMovieCards();
-            cookiesPolicyBar(); // checks for cookie on  page load
-            renderRecentlyViewed(getCookie('cinemaTicketCookie'));
+            renderNavbar(returnMoviesList()); // renders the navbar at the top of the page
+            renderMovieCards(returnMoviesList()); // renders the cards for the movies, calls movies.js to get the movies to render
+            cookiesPolicyBar(); // checks for cookie on  page load, if none is found shows the policy bar to the user
+            renderRecentlyViewed(getCookie('cinemaTicketCookie')); 
         });
 
         //Assign cookie on click of the accept button on the cookie bar

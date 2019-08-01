@@ -18,36 +18,9 @@
 
 <body>
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../markup/index.html">Cinema</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../markup/index.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../markup/listings.html">Listings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./locations.html">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contactForm.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="navbarDiv">
+       <!--Will be populated by the navbar.js file called on page load-->
+    </div>
 
     <!--Beginning of the form-->
     <div class="container">
@@ -169,6 +142,9 @@
         </div>
     </footer>
 
+    <script src="../js/Movies.js"></script>
+    <script src="../js/Navbar.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -179,6 +155,7 @@
 
     <script>
         $(document).ready(function(){
+            renderNavbar(returnMoviesList()); // renders the navbar at the top of the page
 
             var params = new URLSearchParams(window.location.search);
             var timeParam = params.get("time");
