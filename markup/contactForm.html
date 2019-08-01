@@ -121,20 +121,19 @@
                     <div class="text-center text-md-left">
                         <div class="col-sm-10">
                             <!--The following link will open a thank you modal (made with fancy box) -->
-                            <a class="btn btn-info" data-fancybox data-src="#hidden-content" href="javascript:;" onclick="redirectHome()">
+                            <a class="btn btn-info" data-fancybox data-src="#hidden-content" href="javascript:;" onclick="sendEmail()">
                                 Submit
                             </a>
+                            <script>
+                                function sendEmail() {
+                                  alert("Thank you for getting in touch, we will get back to you shortly!");
+                                }
+                                </script>
                         </div>
                     </div>
                     <div class="status"></div>
                 </div>
                 <!--Grid column-->
-
-                <!--Fancy box hidden div, will appear when submit is clicked-->
-                <div style="display: none;" id="hidden-content"> <!--Model which will be shown when book now is clicked-->
-                    <h2>Thanks for getting in touch!</h2>
-                    <p>A member of your team will get back to you as soon as possible, in the meant time you will be redirected back to the home page</p>
-                </div>
 
                 <!--Grid column-->
                 <div class="col-md-3 text-center">

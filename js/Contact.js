@@ -1,1 +1,3 @@
-<input type="button" value="Send" onclick="alert('Thank you, someone from our team will get back to you shortly!);" style="font-size:2em;background:lime"></input>
+function sendEmail() {
+    alert("Thank you for your email, we will get back to you shortly!");
+  }
