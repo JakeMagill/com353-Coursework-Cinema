@@ -64,14 +64,14 @@ function getMovieCardDetails() {
     var movieDetails = [
         {
             'name': 'Avengers: Endgame', 
-            'briefSynopsis' : 'Blah blah blah', 
+            'briefSynopsis' : 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality. The fate of the planet and existence itself has never been more uncertain as everything the Avengers have fought for has led up to this moment.', 
             'imagePath': '../media/posters/Endgame-movie-poster.jpg',
             'pagePath' : '"../markup/movie pages/endgame.html"',
         }, 
         {
             'name': 'Spiderman: Far From Home', 
-            'briefSynopsis' : 'Blah blah blah', 
-            'imagePath': '../media/posters/Endgame-movie-poster.jpg',
+            'briefSynopsis' : 'Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.', 
+            'imagePath': '../media/posters/spiderman.jpeg',
             'pagePath' : '"../markup/movie pages/spiderman.html"',
         }
     ]
