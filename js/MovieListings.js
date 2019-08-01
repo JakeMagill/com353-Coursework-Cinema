@@ -49,7 +49,7 @@ function returnMoviesList(){
             'Title': 'Spiderman: Far From Home', 
             'Age Rating': '12A',
             'synposis': '', 
-            'imagePath': ''
+            'imagePath': '../media/posters/spiderman.jpeg'
         }
     ]
 
