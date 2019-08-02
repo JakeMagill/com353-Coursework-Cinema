@@ -1,6 +1,8 @@
-function renderNavbar(movies){
+//The purpose of this file is JS is to render the navigation bar each page of the site.
+
+function renderNavbar(movies){ // will set thr inner html of a div to render the nav bar
     var html = "";
-    var navbarDiv = document.getElementById('navbarDiv')
+    var navbarDiv = document.getElementById('navbarDiv') // gets the element with the 'navbarDiv' id from the page
 
     if (navbarDiv != null){
         html += '<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">' +
@@ -22,7 +24,7 @@ function renderNavbar(movies){
                               'Movies' +
                             '</a>' +
                             '<div class="dropdown-menu" id="moviesDropdown" aria-labelledby="navbarDropdownMenuLink">' +
-                              renderNavMoviesDropdown(movies) +
+                              renderNavMoviesDropdown(movies) + //uses the list of movies from Movies.js to render elements for the dropdown
                             '</div>' +
                             '</li>' +
                             '<li class="nav-item">' +
@@ -39,7 +41,7 @@ function renderNavbar(movies){
                 '</div>' +
             '</nav>'
 
-        navbarDiv.innerHTML = html;
+        navbarDiv.innerHTML = html; // set the inner html of navbarDiv to the html
     }
 }
 
@@ -47,7 +49,7 @@ function renderNavbar(movies){
 function renderNavMoviesDropdown(movies){
     var html = '';
 
-    movies.forEach(movie => {
+    movies.forEach(movie => { // loops through the movie list and renders a dropdown element for each one
         html += '<a class="dropdown-item" href=' + checkLink(movie.link) + '>' + movie.Title + '</a>'
     });
 

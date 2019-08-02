@@ -55,6 +55,8 @@ function renderRecentlyViewed(cookieArray){
         });
     });
         
+    deleteCookie('cinemaTicketCookie');
+    createCookie('cinemaTicketCookie', JSON.stringify(cookieMovies),1);
     recentlyViewedDiv.innerHTML = html;
     }
 }
