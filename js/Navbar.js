@@ -4,7 +4,7 @@ function renderNavbar(movies){ // will set thr inner html of a div to render the
     var html = "";
     var navbarDiv = document.getElementById('navbarDiv') // gets the element with the 'navbarDiv' id from the page
 
-    if (navbarDiv != null){
+    if (navbarDiv != null){ // makes sure navbarDiv exists 
         html += '<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">' +
                     '<div class="container">' +
                         '<a class="navbar-brand" href="./index.html">Cinema</a>' +

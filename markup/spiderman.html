@@ -15,36 +15,9 @@
 
 <body>
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html">Cinema</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../markup/index.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../markup/listings.html">Listings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./locations.html">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./PricingInfo.html">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contactForm.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="navbarDiv">
+        <!--Will be populated by the navbar.js file called on page load-->
+    </div>
 
     <div class="row">
         <div class="col-md-6 pt-5 pl-5 pr-5 pb-3">
@@ -53,8 +26,8 @@
             </h2>
             <br />
             <p>
-                Peter Parker goes on a school trip to Europe with his friends.
-                While abroad, he is recruited by Nick Fury to team up with Mysterio to battle the Elementals.
+                Peter Parker goes on a school trip to Europe with his friends. While abroad, he is recruited by Nick Fury to team up with
+                Mysterio to battle the Elementals.
             </p>
             <div>
                 <hr>
@@ -86,8 +59,8 @@
             </ul>
         </div>
         <div class="col-md-6 p-5">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Nt9L1jCKGnE"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Nt9L1jCKGnE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
     </div>
     <hr />
@@ -309,7 +282,11 @@
         </div>
     </footer>
 
-    <script src="../../js/Cookie.js"></script>
+    
+    <script src="../js/Cookie.js"></script>
+    <script src="../js/Movies.js"></script>
+    <script src="../js/Navbar.js"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -321,6 +298,7 @@
     <script>
         $(document).ready(function () {
             var movieName = document.getElementById('movie-title').innerText;
+            renderNavbar(returnMoviesList()); // renders the navbar at the top of the page
             addRecentlyViewed(movieName);
         })
     </script>
