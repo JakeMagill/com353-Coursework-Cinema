@@ -12,7 +12,7 @@ function renderMovieListings(movieList){
             html += '<div class="row border my-3 border-0">' + // each iteration will built the following html and add it to the html variable,
                         '<div class="col-md-4 col-sm-0">' + 
                             '<a href=' + checkLink(element.link) + '>' + 
-                                '<img src="' + checkImagePath(element.imagePath) + '" alt="" height="200px" width="300px" class="my-3 movie-image">' +
+                                '<img src="' + checkImagePath(element.imagePath) + '" alt="" height="275px" width="200px" class="my-3 movie-image">' +
                            '</a>' + 
                        '</div>' +
                        '<div class="col-md-8 col-sm-12">' +
