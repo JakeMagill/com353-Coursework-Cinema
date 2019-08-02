@@ -5,47 +5,45 @@ function returnMoviesList(){
     var movies = [
         {
             'Title': 'Avengers: Endgame',
-            'Age Rating': '12A', 
+            'ageRating': '12A', 
             'link': '"./endgame.html"',
-            'synopsis': 'This is the synopsis of the movie', 
-            'briefSynopsis' : 'Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos.', //used on home page
+            'synopsis': 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan,Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos actions and restore order to the universe once and for all, no matter what consequences may be in store.', 
             'imagePath': '../media/posters/Endgame-movie-poster.jpg'
         }, 
         {
             'Title': 'Spiderman: Far From Home', 
-            'Age Rating': '12A',
-            'synposis': '', 
-            'briefSynopsis' : '', // only used on home page
-            'imagePath': '../media/posters/spiderman.jpeg'
+            'ageRating': '12A',
+            'link': '"./spiderman.html"',
+            'synopsis': 'Peter Parker goes on a school trip to Europe with his friends. While abroad, he is recruited by Nick Fury to team up with Mysterio to battle the Elementals.', 
+            'imagePath': '../media/posters/spiderman.jpg'
         },
         {
             'Title': 'The Lion King', 
-            'Age Rating': '12A',
-            'synposis': '', 
-            'briefSynopsis' : '', // only used on home page
-            'imagePath': ''           
+            'ageRating': 'PG',
+            'link': '"./lionking.html"',
+            'synopsis': 'After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.', 
+            'imagePath': '../media/posters/lionking.jpg'           
         },
         {
-            'Title': 'Alladin', 
-            'Age Rating': '12A',
-            'synposis': '', 
-            'briefSynopsis' : '', // only used on home page
-            'imagePath': ''           
+            'Title': 'Toy Story 4', 
+            'ageRating': 'U',
+            'link': '"./toystory.html"',
+            'synopsis': ' When a new toy called "Forky" joins Woody and the gang, a road trip alongside old and new friends reveals how big the world can be for a toy.', 
+            'imagePath': '../media/posters/toystory.jpg'           
         },
         {
             'Title': 'Us',
-            'Age Rating': '12A',
-            
-            'synposis': '', 
-            'briefSynopsis' : '', // only used on home page
-            'imagePath': '' 
+            'ageRating': '18',
+            'link': '"./Us.html"',
+            'synopsis': ' A familys serene beach vacation turns to chaos when their doppelgängers appear and begin to terrorize them.y.', 
+            'imagePath': '../media/posters/us.jpg' 
         },
         {
             'Title': 'Fast & Furious Presents: Hobbs & Shaw',
-            'Age Rating': '12A',
-            'synposis': '', 
-            'briefSynopsis' : '', // only used on home page
-            'imagePath': '' 
+            'ageRating': '12A',
+            'link': '"./Fast&Furious.html"',
+            'synopsis': 'Lawman Luke Hobbs and outcast Deckard Shaw form an unlikelyalliance when a cyber-genetically enhanced villain threatens the future of humanity.', 
+            'imagePath': '../media/posters/fast&furious.jpg' 
         }
     ]
 
