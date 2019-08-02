@@ -16,7 +16,7 @@ function renderMovieCards(movies) {
                                 '<h4 class="card-title">' +
                                     '<a href=' + checkPagePath(element.link) + '>' + element.Title + '</a>' +
                                 '</h4>' +
-                                '<p class="card-text">' + checkSynopsis(element.briefSynopsis) + '</p>' +
+                                '<p class="card-text">' + checkSynopsis(element.synopsis) + '</p>' +
                             '</div>' +
                         '</div>' +
                     '</div>'
