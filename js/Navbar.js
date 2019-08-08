@@ -7,7 +7,7 @@ function renderNavbar(movies){ // will set thr inner html of a div to render the
     if (navbarDiv != null){ // makes sure navbarDiv exists 
         html += '<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">' +
                     '<div class="container">' +
-                        '<a class="navbar-brand" href="./index.html">Cinema</a>' +
+                        '<a class="navbar-brand" href="./index.html">Ticket Booking</a>' +
                         '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">' +
                             '<span class="navbar-toggler-icon"></span>' +
                         '</button>' +
