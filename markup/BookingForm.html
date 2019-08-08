@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Booking</title>
+    <title>Bookings</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
@@ -247,7 +247,7 @@
 
 
             if (validateBookingDetails(bookingDetails) === true) { // checks that form values aren't default or empty
-                localStorage.setItem('TicketInfo', JSON.stringify(bookingDetails)); // creates ticket item in local storage
+                sessionStorage.setItem('TicketInfo', JSON.stringify(bookingDetails)); // creates ticket item in local storage
                 $.fancybox.open({ // opens a fancybox modal to alert the user that their order has been saved
                     src: '#hidden-content', // fancybox source (line 117)
                     type: 'inline', // display type

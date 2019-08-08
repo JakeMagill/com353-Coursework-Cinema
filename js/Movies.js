@@ -8,7 +8,7 @@ function returnMoviesList(){
             'ageRating': '12A', 
             'link': '"./endgame.html"',
             'synopsis': 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan,Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos actions and restore order to the universe once and for all, no matter what consequences may be in store.', 
-            'imagePath': '../media/posters/Endgame-movie-poster.jpg'
+            'imagePath': '../media/posters/Endgame-movie-poster.png'
         }, 
         {
             'Title': 'Spiderman: Far From Home', 
