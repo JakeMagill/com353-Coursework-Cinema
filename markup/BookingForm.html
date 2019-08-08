@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link href="../css/site.css" rel="stylesheet">
@@ -114,7 +114,8 @@
         </div>
     </div>
 
-    <div style="display: none;" id="hidden-content"> <!-- source for fancybox -->
+    <div style="display: none;" id="hidden-content">
+        <!-- source for fancybox -->
         <!--Model which will be shown when book now is clicked-->
         <h2>Thank You!</h2>
         <p>Thanks for booking, your order is being processed and you will be emailed your tickets soon</p>
@@ -123,24 +124,24 @@
 
     <!-- Footer -->
     <footer class="py-5 bg-dark footer">
-            <div class="container">
-                <div class="col-md-12  col-sm-12">
-                    <p class="m-0 text-white">Simon Storey: B00746082 | Jake Magill: B00748213 | Mark McLaughlinB00691535</p>
-                </div>
-                <!-- Footer Links -->
-                <div class="col-md-4 col-sm-12">
-                    <p class="text-white">
-                        <ul class="div-list">
-                            <li>
-                                <a href="https://en-gb.facebook.com/ulsteruniversity/" class="fa fa-facebook fa-lg  text-white pr-3"></a>
-                                <a href="https://twitter.com/UlsterUni?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="fa fa-twitter fa-lg text-white pr-3"></a>
-                                <a href="https://www.linkedin.com/school/ulsteruniversity/" class="fa fa-linkedin text-white fa-lg"></a>
-                            </li>
-                        </ul>
-                    </p>
-                </div>
+        <div class="container">
+            <div class="col-md-12  col-sm-12">
+                <p class="m-0 text-white">Simon Storey: B00746082 | Jake Magill: B00748213 | Mark McLaughlinB00691535</p>
             </div>
-        </footer>
+            <!-- Footer Links -->
+            <div class="col-md-4 col-sm-12">
+                <p class="text-white">
+                    <ul class="div-list">
+                        <li>
+                            <a href="https://en-gb.facebook.com/ulsteruniversity/" class="fa fa-facebook fa-lg  text-white pr-3"></a>
+                            <a href="https://twitter.com/UlsterUni?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="fa fa-twitter fa-lg text-white pr-3"></a>
+                            <a href="https://www.linkedin.com/school/ulsteruniversity/" class="fa fa-linkedin text-white fa-lg"></a>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <script src="../js/Movies.js"></script>
     <script src="../js/Navbar.js"></script>
@@ -268,36 +269,36 @@
             }, 5000); // wait 10 seconds before firing
         }
 
-        function validateBookingDetails(bookingDetails){ // checks each property in opbject, returns false if default or empty
-            if(bookingDetails.name == ''){
+        function validateBookingDetails(bookingDetails) { // checks each property in opbject, returns false if default or empty
+            if (bookingDetails.name == '') {
                 alert('Name is a required field');
                 return false;
             }
-            else if (bookingDetails.email == ''){
+            else if (bookingDetails.email == '') {
                 alert('Email is a required field');
                 return false;
             }
-            else if (bookingDetails.movie == ''){
+            else if (bookingDetails.movie == '') {
                 alert('Movie is a required field');
                 return false;
             }
-            else if (bookingDetails.cinema == ''){
+            else if (bookingDetails.cinema == '') {
                 alert('Cinema is a required field');
                 return false;
             }
-            else if (bookingDetails.time == ''){
+            else if (bookingDetails.time == '') {
                 alert('Time is a required field');
                 return false;
             }
-            else if (bookingDetails.ticketType == 'default'){
+            else if (bookingDetails.ticketType == 'default') {
                 alert('Ticket Type is a required field');
                 return false;
             }
-            else if (bookingDetails.ticketNo == 'default'){
+            else if (bookingDetails.ticketNo == 'default') {
                 alert('Number of Tickets is a required field');
                 return false;
             }
-            
+
             else {
                 return true;
             }
