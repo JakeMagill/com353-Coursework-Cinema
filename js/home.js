@@ -31,7 +31,7 @@ function renderRecentlyViewed(cookieArray, movies){
     if (cookieArray != undefined){
 
         var cookieMovies = JSON.parse(cookieArray);
-        var html = '<h3 class="pt-5 row"><u>Recently Viewed</u></h3><br/>';
+        var html = '<h3 class="pt-5"><u>Recently Viewed</u></h3>' + '<div class="row py-5">';
         var recentlyViewedDiv = document.getElementById("recentlyViewed");
     
         cookieMovies.forEach(cookieMovie => {
@@ -53,6 +53,8 @@ function renderRecentlyViewed(cookieArray, movies){
             }
         });
     });
+
+    html += '</div>'
         
     createCookie('cinemaTicketCookie', JSON.stringify(cookieMovies),1);
     recentlyViewedDiv.innerHTML = html;

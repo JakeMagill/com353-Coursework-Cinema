@@ -20,17 +20,17 @@
 
 <body>
     <div id="navbarDiv">
-       <!--Will be populated by the navbar.js file-->
+        <!--Will be populated by the navbar.js file-->
     </div>
 
     <!--Carousel-->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../media/bannerImage1.jpg" class="d-block w-100" alt="...">
+                <img src="../media/ffh_banner.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="../media/Dill-Pickle-Popcorn.jpg" class="d-block w-100" alt="...">
+                <img src="../media/endgame_banner.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
                 <img src="../media/posters/us-movie-poster.jpg" class="d-block w-100" alt="...">
@@ -48,15 +48,18 @@
 
     <!-- Main Page Content -->
     <div class="container">
-        <h3 class="pt-5"><u>Popular Releases</u></h3>
+        <h3 class="pt-5">
+            <u>Popular Releases</u>
+        </h3>
         <div class="row py-5" id="movieCards">
             <!--Cards from the renderMovieCards() method will be rendered here, see home.js file-->
         </div>
+    </div>
 
-
-        <div class="row py-5" id="recentlyViewed">
+    <div class="container"  id="recentlyViewed">
+        
             <!--will render movies whos title is currently being stored in the sites cookie-->
-        </div>
+    
     </div>
 
     <!-- Footer -->
@@ -77,19 +80,19 @@
             </div>
 
             <a href="http://www.facebook.com" class="fa fa-facebook"></a>
-            <a href="http://www.twitter.com" class="fa fa-twitter"></a>  
+            <a href="http://www.twitter.com" class="fa fa-twitter"></a>
         </div>
     </footer>
 
-      <!-- Cookie policy bar (see JS logic at page bottom) -->
-      <div id='cookieAcceptBar' class="cookieAcceptBar bg-dark mb-0 text-white">
-            <p>This website uses cookies, please click 'Accept and Close' to accept the use of cookies on our website. By continuing
-                to browse you accept the use of cookies on the website.</p>
-            <p>For more information on how we use cookies please visit our Cookie & Privacy Policy page notice page.</p>
-            <button id="cookieAcceptBarConfirm" class="btn btn-success">
-                <span>Accept and Close</span>
-            </button>
-        </div>
+    <!-- Cookie policy bar (see JS logic at page bottom) -->
+    <div id='cookieAcceptBar' class="cookieAcceptBar bg-dark mb-0 text-white">
+        <p>This website uses cookies, please click 'Accept and Close' to accept the use of cookies on our website. By continuing
+            to browse you accept the use of cookies on the website.</p>
+        <p>For more information on how we use cookies please visit our Cookie & Privacy Policy page notice page.</p>
+        <button id="cookieAcceptBarConfirm" class="btn btn-success">
+            <span>Accept and Close</span>
+        </button>
+    </div>
 
     <!-- Custom JS -->
     <script src="../js/Cookie.js"></script>
@@ -110,7 +113,7 @@
             renderNavbar(returnMoviesList()); // renders the navbar at the top of the page
             renderMovieCards(returnMoviesList()); // renders the cards for the movies, calls movies.js to get the movies to render
             cookiesPolicyBar(); // checks for cookie on  page load, if none is found shows the policy bar to the user
-            renderRecentlyViewed(getCookie('cinemaTicketCookie'), returnMoviesList()); 
+            renderRecentlyViewed(getCookie('cinemaTicketCookie'), returnMoviesList());
         });
 
         //Assign cookie on click of the accept button on the cookie bar
