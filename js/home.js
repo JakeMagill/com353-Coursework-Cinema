@@ -26,28 +26,27 @@ function renderMovieCards(movies) {
     movieCardsDiv.innerHTML = html;
 }
 
-function renderRecentlyViewed(cookieArray){
+function renderRecentlyViewed(cookieArray, movies){
 
     if (cookieArray != undefined){
 
-        var movies = getMovieCardDetails();
         var cookieMovies = JSON.parse(cookieArray);
-        var html = '<h3 class="pt-5"><u>Recently Viewed</u></h3><br/>';
+        var html = '<h3 class="pt-5 row"><u>Recently Viewed</u></h3><br/>';
         var recentlyViewedDiv = document.getElementById("recentlyViewed");
     
         cookieMovies.forEach(cookieMovie => {
             movies.forEach(movie => {
-                if (movie.name = cookieMovie){
+                if (movie.Title === cookieMovie){
                     html += '<div class="col-lg-4 col-md-6 mb-4">' +
                     '<div class="card h-100">' +
-                    '<a href=' + checkPagePath(movie.pagePath)+ '>' +
+                    '<a href=' + checkPagePath(movie.link)+ '>' +
                         '<img class="card-img-top" src="' + checkImagePath(movie.imagePath) + '"alt="">' +
                     '</a>' +
                     '<div class="card-body">' +
                         '<h4 class="card-title">' +
-                            '<a href=' + checkPagePath(movie.pagePath) + '>' + movie.name + '</a>' +
+                            '<a href=' + checkPagePath(movie.pagePath) + '>' + movie.Title + '</a>' +
                         '</h4>' +
-                        '<p class="card-text">' + checkSynopsis(movie.briefSynopsis) + '</p>' +
+                        '<p class="card-text">' + checkSynopsis(movie.synopsis) + '</p>' +
                     '</div>' +
                 '</div>' +
             '</div>'
@@ -55,7 +54,6 @@ function renderRecentlyViewed(cookieArray){
         });
     });
         
-    deleteCookie('cinemaTicketCookie');
     createCookie('cinemaTicketCookie', JSON.stringify(cookieMovies),1);
     recentlyViewedDiv.innerHTML = html;
     }

@@ -65,6 +65,7 @@ function addRecentlyViewed(movieName){
     if (movieExists == false) {
         if(storedRecentMoves.length == 3){ // if the array has three values
             storedRecentMoves.pop(); // remove the last value
+            storedRecentMoves.unshift(movieName); // add the current movie to the start of the array
         }
         else {
             storedRecentMoves.unshift(movieName); // add the current movie to the start of the array

@@ -19,7 +19,7 @@
 <body>
     <!--Navigation Bar-->
     <div id="navbarDiv">
-       <!--Will be populated by the navbar.js file called on page load-->
+        <!--Will be populated by the navbar.js file called on page load-->
     </div>
 
     <!--Beginning of the form-->
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <label for="movieDropDown">Movie Title</label>
                 <select class="form-control" id="movieDropDown">
-                    <option value="default">--Movie Title--</option> 
+                    <option value="default">--Movie Title--</option>
                     <option value="Avengers:endgame">Avengers: Endgame</option>
                     <option value="lionKing">The Lion King</option>
                     <option value="us">Us</option>
@@ -71,7 +71,7 @@
             <div class="form-group">
                 <label for="movieDropDown">Time</label>
                 <select class="form-control" id="timeDropdown">
-                    
+
                 </select>
             </div>
 
@@ -105,19 +105,17 @@
                 <span class="h5">Total: </span>
                 <span class="h5" id="totalAmount"></span>
             </div>
-
-            <div class="form-group row">
-                <div class="col-sm-10">
-                    <!--The following link will open a thank you modal (made with fancy box) and call a function to redirect the user after 10 seconds-->
-                    <a class="btn btn-info" data-fancybox data-src="#hidden-content" href="javascript:;" onclick="redirectHome()">
-                        Book Now
-                    </a>
-                </div>
-            </div>
         </form>
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button class="btn btn-info" onclick="saveBooking()">Book Now</button>
+            </div>
+        </div>
     </div>
 
-    <div style="display: none;" id="hidden-content"> <!--Model which will be shown when book now is clicked-->
+    <div style="display: none;" id="hidden-content"> <!-- source for fancybox -->
+        <!--Model which will be shown when book now is clicked-->
         <h2>Thank You!</h2>
         <p>Thanks for booking, your order is being processed and you will be emailed your tickets soon</p>
         <p>In the meantime you will be redirected back to the homepage in a few seconds</p>
@@ -154,49 +152,49 @@
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             renderNavbar(returnMoviesList()); // renders the navbar at the top of the page
 
-            var params = new URLSearchParams(window.location.search);
-            var timeParam = params.get("time");
-            var titleParam = params.get("title");
-            var cinemaParam = params.get("cinema");
-            
-            if (timeParam != null){
+            var params = new URLSearchParams(window.location.search); //get the parameters from the query string
+            var timeParam = params.get("time"); // get the time from params
+            var titleParam = params.get("title"); // get the title from params
+            var cinemaParam = params.get("cinema"); // get the cinema from params
+
+            if (timeParam != null) { // if time is not null set value of time dropdown to time on page load
                 document.getElementById('timeDropdown').value = timeParam;
             }
 
-            if (titleParam != null) {
+            if (titleParam != null) { // if title is not null set value of title dropdown to time on page load
                 document.getElementById('movieDropDown').value = titleParam
             }
 
-            if (cinemaParam != null){
+            if (cinemaParam != null) { // if cinema is not null set value of cinema dropdown to time on page load
                 document.getElementById('cinemaDropDown').value = cinemaParam
             }
 
-            setTimeDropdownOptions();
+            setTimeDropdownOptions(); // calls function to change the time values depending on cinema selected
         })
 
-        $('#cinemaDropDown').change(function(){
-            setTimeDropdownOptions();
+        $('#cinemaDropDown').change(function () {
+            setTimeDropdownOptions(); // when selected cinema changes calls function to change the time values depending on cinema selected
         });
 
 
-        function setTimeDropdownOptions(){
-            var cinemaNameAndTimes = {
-                'Jordanstown': ['10:30', '12:45', '14:30', '17:15', '19:00'], 
-                'Colraine': ['08:30', '11:45', '13:30', '16:15', '18:00'], 
+        function setTimeDropdownOptions() {
+            var cinemaNameAndTimes = { // each cinema with their possible showing times
+                'Jordanstown': ['10:30', '12:45', '14:30', '17:15', '19:00'],
+                'Colraine': ['08:30', '11:45', '13:30', '16:15', '18:00'],
                 'Magee': ['11:30', '13:45', '15:30', '17:30', '20:00']
             };
 
-            var cinema = $('#cinemaDropDown').children("option:selected").val();
-            var times = cinemaNameAndTimes[cinema];
+            var cinema = $('#cinemaDropDown').children("option:selected").val(); // gets selected cinema value
+            var times = cinemaNameAndTimes[cinema]; // gets posisble times for that cinema
 
-            var html = $.map(times, function(time){
+            var html = $.map(times, function (time) { // renders selectable option for each time
                 return '<option value="' + time + '">' + time + '</option>'
             }).join('');
 
-            document.getElementById('timeDropdown').innerHTML=html;
+            document.getElementById('timeDropdown').innerHTML = html; // assigns created selections to the dropsown
         }
 
         $('#ticketTypeDropdown').change(function () { // if the type if ticket is changed
@@ -206,7 +204,7 @@
             var total;
 
             if (ticketNo != 'deault' && ticketType != 'default') { // check that neither value is default
-                if(ticketNo * ticketType === NaN){
+                if (ticketNo * ticketType === NaN) {
                     total = 0;
                 } // calculate total
                 else {
@@ -229,16 +227,78 @@
             }
         });
 
-        $('#totalAmount').change(function(){
-            if(this.innerText == '£NaN'){
-                this.innerText = '£0'
+        $('#totalAmount').change(function () {
+            if (this.value == '£NaN') {
+                this.value = '£0'
             }
-        })
+        });
 
-        function redirectHome(){
+        function saveBooking() {
+            var bookingDetails = { // create object using form values
+                'name': document.getElementById('inputName').value,
+                'email': document.getElementById('inputEmail').value,
+                'movie': document.getElementById('movieDropDown').value,
+                'cinema': document.getElementById('cinemaDropDown').value,
+                'time': document.getElementById('timeDropdown').value,
+                'ticketType': document.getElementById('ticketTypeDropdown').value,
+                'ticketNo': document.getElementById('ticketNoDropdown').value,
+                'total': document.getElementById('totalAmount').value
+            };
+
+
+            if (validateBookingDetails(bookingDetails) === true) { // checks that form values aren't default or empty
+                localStorage.setItem('TicketInfo', JSON.stringify(bookingDetails)); // creates ticket item in local storage
+                $.fancybox.open({ // opens a fancybox modal to alert the user that their order has been saved
+                    src: '#hidden-content', // fancybox source (line 117)
+                    type: 'inline', // display type
+                    opts: {
+                        afterShow: function (instance, current) { // what will happen after the modal is shown
+                            redirectHome(); // calls function to redirect the user to home
+                        }
+                    }
+                });
+            }
+        }
+
+        function redirectHome() {
             window.setTimeout(function () { //delayed function to redirect the user after 'submitting'
                 window.location.href = './index.html'; // move to the home page
-            }, 10000); // wait 10 seconds before firing
+            }, 5000); // wait 10 seconds before firing
+        }
+
+        function validateBookingDetails(bookingDetails){ // checks each property in opbject, returns false if default or empty
+            if(bookingDetails.name == ''){
+                alert('Name is a required field');
+                return false;
+            }
+            else if (bookingDetails.email == ''){
+                alert('Email is a required field');
+                return false;
+            }
+            else if (bookingDetails.movie == ''){
+                alert('Movie is a required field');
+                return false;
+            }
+            else if (bookingDetails.cinema == ''){
+                alert('Cinema is a required field');
+                return false;
+            }
+            else if (bookingDetails.time == ''){
+                alert('Time is a required field');
+                return false;
+            }
+            else if (bookingDetails.ticketType == 'default'){
+                alert('Ticket Type is a required field');
+                return false;
+            }
+            else if (bookingDetails.ticketNo == 'default'){
+                alert('Number of Tickets is a required field');
+                return false;
+            }
+            
+            else {
+                return true;
+            }
         }
 
     </script>
